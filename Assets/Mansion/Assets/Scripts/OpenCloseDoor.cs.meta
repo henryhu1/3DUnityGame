@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: de1e4202cd208f14ab4f08a7fec54105
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215407
+  packageName: Mansion Pack
+  packageVersion: 1.0.3
+  assetPath: Assets/Mansion/Assets/Scripts/OpenCloseDoor.cs
+  uploadId: 716815

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a7812029b5f09c943b7cd8a85fe2c50a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215407
+  packageName: Mansion Pack
+  packageVersion: 1.0.3
+  assetPath: Assets/Mansion/Assets/Animations/DoorExt2A-close.anim
+  uploadId: 716815

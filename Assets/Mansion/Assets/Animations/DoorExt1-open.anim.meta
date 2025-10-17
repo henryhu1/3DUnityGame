@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fa0e58c2314494f4cb5cbc92de04c4e0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215407
+  packageName: Mansion Pack
+  packageVersion: 1.0.3
+  assetPath: Assets/Mansion/Assets/Animations/DoorExt1-open.anim
+  uploadId: 716815

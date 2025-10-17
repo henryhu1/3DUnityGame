@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 289e168c20dff57479cf5d3f61599e6f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215407
+  packageName: Mansion Pack
+  packageVersion: 1.0.3
+  assetPath: Assets/Mansion/Demo/TerrainLayer-MNS_dirt.terrainlayer
+  uploadId: 716815

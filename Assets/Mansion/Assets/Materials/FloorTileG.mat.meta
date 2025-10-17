@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b05e468ff11305e4e92c2fcc6de24e4e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215407
+  packageName: Mansion Pack
+  packageVersion: 1.0.3
+  assetPath: Assets/Mansion/Assets/Materials/FloorTileG.mat
+  uploadId: 716815

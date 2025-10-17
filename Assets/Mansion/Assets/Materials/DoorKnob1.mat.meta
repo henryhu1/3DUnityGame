@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c008dc18425db3741aab4da3f1cf71b3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215407
+  packageName: Mansion Pack
+  packageVersion: 1.0.3
+  assetPath: Assets/Mansion/Assets/Materials/DoorKnob1.mat
+  uploadId: 716815
