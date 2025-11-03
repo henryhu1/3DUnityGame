@@ -6,6 +6,14 @@ public class CameraDirector : MonoBehaviour
     [SerializeField] private CameraEventChannel channel;
     [SerializeField] private CinemachineCamera playerCam;
     [SerializeField] private CinemachineCamera focusCam;
+    [SerializeField] private CinemachineCamera cinematicCam;
+
+    private void Start()
+    {
+        Transform playerHead = PlayerManager.Instance.getHeadPivotTransform();
+        playerCam.Follow = playerHead;
+        playerCam.LookAt = playerHead;
+    }
 
     private void OnEnable()
     {
