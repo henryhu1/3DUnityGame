@@ -15,13 +15,18 @@ public class PlayerInputHandler : MonoBehaviour, IPlayerComponentable
 
     }
 
-    public void OnMove(InputValue context)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        _bus.RaiseMove(context.Get<Vector2>());
+        _bus.RaiseMove(context.ReadValue<Vector2>());
     }
 
-    public void OnLook(InputValue context)
+    public void OnLook(InputAction.CallbackContext context)
     {
-        _bus.RaiseLook(context.Get<Vector2>());
+        _bus.RaiseLook(context.ReadValue<Vector2>());
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        _bus.RaiseInteract(context.ReadValueAsButton());
     }
 }

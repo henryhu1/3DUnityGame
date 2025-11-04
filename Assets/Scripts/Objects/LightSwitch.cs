@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour, ILightSwitchable
+public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject
 {
     [Header("Model")]
     [SerializeField] private Vector3 onRotation;
@@ -8,7 +8,7 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable
     [SerializeField] private Transform pointOfRotation;
 
     [Header("Lights")]
-    [SerializeField] private ILightable[] controlledLights;
+    [SerializeField] private LightSO[] controlledLights;
 
     private bool areLightsOn;
 
@@ -48,5 +48,20 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable
         }
 
         areLightsOn = isOn;
+    }
+
+    public void OnCenterEnter()
+    {
+        Debug.Log("Center enter light switch");
+    }
+
+    public void OnCenterExit()
+    {
+        Debug.Log("Center exit light switch");
+    }
+
+    public void OnCenterClick()
+    {
+        ToggleLight(!areLightsOn);
     }
 }

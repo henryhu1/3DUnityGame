@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CameraEventChannel cameraEvents;
     [SerializeField] private GameObject headPivot;
 
+    private IHoverableObject currentHover;
+
     private void Awake()
     {
         if (Instance != this)
@@ -48,9 +50,30 @@ public class PlayerManager : MonoBehaviour
             comp.Uninitialize();
     }
 
+    public void SwitchHover(IHoverableObject newHover)
+    {
+        if (currentHover != newHover)
+        {
+            currentHover?.OnCenterExit();
+            newHover.OnCenterEnter();
+            currentHover = newHover;
+        }
+    }
+
+    public void LeaveHover()
+    {
+        currentHover?.OnCenterExit();
+        currentHover = null;
+    }
+
     public void LookVertically(float pitch)
     {
         headPivot.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+    }
+
+    public void InteractWithHovering()
+    {
+        currentHover?.OnCenterClick();
     }
 
     public void ApplyDamage(int dmg)

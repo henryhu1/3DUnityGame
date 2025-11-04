@@ -9,6 +9,7 @@ public class PlayerEventBus
     public event Action<string> OnItemPickup; // item ID or name
     public event Action<Vector2> OnMove;
     public event Action<Vector2> OnLook;
+    public event Action<bool> OnInteract;
 
     // Broadcast methods
     public void RaiseDamage(int amount)
@@ -25,4 +26,7 @@ public class PlayerEventBus
 
     public void RaiseLook(Vector2 direction)
         => OnLook?.Invoke(direction);
+
+    public void RaiseInteract(bool isPressed)
+        => OnInteract?.Invoke(isPressed);
 }
