@@ -13,7 +13,6 @@ public class PlayerManager : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private CameraEventChannel cameraEvents;
     [SerializeField] private GameObject headPivot;
-    const float PITCH_CLAMP = 60;
 
     private void Awake()
     {
@@ -51,8 +50,7 @@ public class PlayerManager : MonoBehaviour
 
     public void LookVertically(float pitch)
     {
-        float cameraPitch = Mathf.Clamp(pitch, -PITCH_CLAMP, PITCH_CLAMP);
-        headPivot.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
+        headPivot.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
 
     public void ApplyDamage(int dmg)

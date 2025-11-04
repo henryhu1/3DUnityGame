@@ -12,6 +12,7 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
     // Rotation
     private float pitch = 0;
     private Vector2 lookInput;
+    const float PITCH_CLAMP = 60;
 
     // @TODO: move to a settings ScriptableObject configuration
     [SerializeField] private float speed = 3;
@@ -54,7 +55,7 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
         Vector3 sidewaysDistance = transform.right * distance.x;
         transform.position += forwardDistance + sidewaysDistance;
 
-        pitch -= lookInput.y * sensitivity;
+        pitch = Mathf.Clamp(pitch - lookInput.y * sensitivity, -PITCH_CLAMP, PITCH_CLAMP);
         _manager.LookVertically(pitch);
         transform.Rotate(0,  lookInput.x * sensitivity, 0);
     }
