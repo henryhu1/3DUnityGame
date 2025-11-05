@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Light))]
 public class PointLight : MonoBehaviour
 {
     private Light pointLight;
@@ -11,8 +12,18 @@ public class PointLight : MonoBehaviour
         pointLight = GetComponent<Light>();
     }
 
-    public void Update()
+    private void OnEnable()
     {
-        pointLight.enabled = lightSO.GetIsLightOn();
+        lightSO.RegisterOnLightChangeCallback(ToggleLight);
+    }
+
+    private void OnDisable()
+    {
+        lightSO.UnregisterOnLightChangeCallback(ToggleLight);
+    }
+
+    public void ToggleLight(bool isLightOn)
+    {
+        pointLight.enabled = isLightOn;
     }
 }

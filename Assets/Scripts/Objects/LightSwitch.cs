@@ -10,23 +10,33 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject
     [Header("Lights")]
     [SerializeField] private LightSO[] controlledLights;
 
-    private bool areLightsOn;
-
-    public void Start()
+    private void OnEnable()
     {
-        areLightsOn = true;
+        foreach (LightSO light in controlledLights)
+        {
+            light.RegisterOnLightChangeCallback(SetLeverPosition);
+        }
     }
 
-    public void OnEnable()
+    private void OnDisable()
     {
-        ToggleLight(areLightsOn);
+        foreach (LightSO light in controlledLights)
+        {
+            light.UnregisterOnLightChangeCallback(SetLeverPosition);
+        }
     }
 
-    public void ToggleLight(bool isOn)
+    public void ToggleLight()
     {
-        if (areLightsOn == isOn) return;
+        foreach (LightSO light in controlledLights)
+        {
+            light.ToggleLight();
+        }
+    }
 
-        if (isOn)
+    private void SetLeverPosition(bool isLightOn)
+    {
+        if (isLightOn)
         {
             pointOfRotation.rotation = Quaternion.Euler(onRotation);
         }
@@ -34,34 +44,20 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject
         {
             pointOfRotation.rotation = Quaternion.Euler(offRotation);
         }
-
-        foreach (ILightable light in controlledLights)
-        {
-            if (isOn)
-            {
-                light.TurnOn();
-            }
-            else
-            {
-                light.TurnOff();
-            }
-        }
-
-        areLightsOn = isOn;
     }
 
     public void OnCenterEnter()
     {
-        Debug.Log("Center enter light switch");
+        // @TODO: visual effect on hover
     }
 
     public void OnCenterExit()
     {
-        Debug.Log("Center exit light switch");
+        // @TODO: visual effect on hover
     }
 
     public void OnCenterClick()
     {
-        ToggleLight(!areLightsOn);
+        ToggleLight();
     }
 }
