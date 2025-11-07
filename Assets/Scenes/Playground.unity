@@ -643,6 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
     m_RemovedComponents:
     - {fileID: 7137537217174666291, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
+    - {fileID: 4052561138848531479, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1151,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86506c8f1db9a11478c4c9e90a268c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  maxDistance: 100
+  maxDistance: 1
 --- !u!1 &1137312787
 GameObject:
   m_ObjectHideFlags: 0

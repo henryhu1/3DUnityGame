@@ -1,14 +1,23 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject
+public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject, IHighlightableObject
 {
     [Header("Model")]
     [SerializeField] private Vector3 onRotation;
     [SerializeField] private Vector3 offRotation;
     [SerializeField] private Transform pointOfRotation;
+    [SerializeField] private Renderer rend;
+
+    [SerializeField] private Color highlightColor = Color.cyan;
+    private Color baseColor;
 
     [Header("Lights")]
     [SerializeField] private LightSO[] controlledLights;
+
+    private void Start()
+    {
+        baseColor = rend.material.GetColor("_EmissionColor");
+    }
 
     private void OnEnable()
     {
@@ -48,16 +57,24 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject
 
     public void OnCenterEnter()
     {
-        // @TODO: visual effect on hover
+        Highlight(true);
     }
 
     public void OnCenterExit()
     {
-        // @TODO: visual effect on hover
+        Highlight(false);
     }
 
     public void OnCenterClick()
     {
         ToggleLight();
+    }
+
+    public void Highlight(bool isOn)
+    {
+        if (isOn)
+            rend.material.SetColor("_EmissionColor", highlightColor);
+        else
+            rend.material.SetColor("_EmissionColor", baseColor);
     }
 }

@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ee3f24af3fe7ac64aab79a9967b4c16d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -179,7 +179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ee3f24af3fe7ac64aab79a9967b4c16d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -273,6 +273,9 @@ MonoBehaviour:
   onRotation: {x: -30, y: 0, z: 0}
   offRotation: {x: 30, y: 0, z: 0}
   pointOfRotation: {fileID: 9068484247221687132}
+  rend: {fileID: 6183404048874103800}
+  highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  controlledLights: []
 --- !u!65 &8724397154382701679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -361,7 +364,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ee3f24af3fe7ac64aab79a9967b4c16d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -8,7 +8,6 @@ public class PlayerInteractHandler : MonoBehaviour, IPlayerComponentable, IOnPla
     public void Initialize(PlayerManager manager, PlayerEventBus bus)
     {
         _manager = manager;
-        Debug.Log("interaction initialized");
 
         _bus = bus;
         _bus.OnInteract += OnPlayerInteract;
