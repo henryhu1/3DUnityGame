@@ -21,10 +21,10 @@ public class GameManager : MonoBehaviour
             {
                 PlayerManager.Instance.SwitchHover(hoveringOver);
             }
-            else
-            {
-                PlayerManager.Instance.LeaveHover();
-            }
+        }
+        else
+        {
+            PlayerManager.Instance.LeaveHover();
         }
     }
 }
