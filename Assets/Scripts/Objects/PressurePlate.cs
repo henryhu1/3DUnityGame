@@ -4,24 +4,43 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
 {
     private bool isPlateDown = false;
 
+    [Header("Model")]
+    [SerializeField] private float liftedHeight = 1;
+    [SerializeField] private float pressedHeight = 0.5f;
+    [SerializeField] private Transform detectionPlate;
+
     [Header("Lights")]
     [SerializeField] private LightSO[] controlledLights;
 
     public void HandleEnter(Collider other)
     {
-        if (!isPlateDown)
+        if (other.TryGetComponent(out IWeightable weightable))
         {
-            ToggleLight();
-            isPlateDown = true;
+            if (!isPlateDown)
+            {
+                isPlateDown = true;
+                ToggleLight();
+
+                Vector3 newPosition = detectionPlate.localPosition;
+                newPosition.y = pressedHeight;
+                detectionPlate.localPosition = newPosition;
+            }
         }
     }
 
     public void HandleExit(Collider other)
     {
-        if (isPlateDown)
+        if (other.TryGetComponent(out IWeightable weightable))
         {
-            ToggleLight();
-            isPlateDown = false;
+            if (isPlateDown)
+            {
+                isPlateDown = false;
+                ToggleLight();
+
+                Vector3 newPosition = detectionPlate.localPosition;
+                newPosition.y = liftedHeight;
+                detectionPlate.localPosition = newPosition;
+            }
         }
     }
 
@@ -29,7 +48,8 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
     {
         foreach (LightSO light in controlledLights)
         {
-            light.ToggleLight();
+            if (isPlateDown) light.TurnOff();
+            else light.TurnOn();
         }
     }
 }

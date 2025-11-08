@@ -1825,6 +1825,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583cf1decb0e58840834ecc55fa8a069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractHandler
+--- !u!1001 &3769067648584707207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00147
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.534
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240169549881226549, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568104297622238060, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: controlledLights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568104297622238060, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: 'controlledLights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
+    - target: {fileID: 9116017935841349273, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
+      propertyPath: m_Name
+      value: PressurePlate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1840,3 +1905,4 @@ SceneRoots:
   - {fileID: 352653334}
   - {fileID: 142881412}
   - {fileID: 1878561134}
+  - {fileID: 3769067648584707207}

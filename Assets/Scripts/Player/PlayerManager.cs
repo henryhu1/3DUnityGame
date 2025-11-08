@@ -2,13 +2,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IWeightable
 {
     public static PlayerManager Instance;
 
     public PlayerEventBus Bus { get; private set; }
 
     private PlayerInput playerInputComponent;
+
+    [Header("Player Stats")]
+    // @TODO: move to a settings ScriptableObject configuration
+    [SerializeField] private float weight = 1;
 
     [Header("Camera")]
     [SerializeField] private CameraEventChannel cameraEvents;
@@ -81,4 +85,9 @@ public class PlayerManager : MonoBehaviour
 
     public Transform getHeadPivotTransform()
         => headPivot.transform;
+
+    public float GetWeight()
+    {
+        return weight;
+    }
 }
