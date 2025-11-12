@@ -8,6 +8,7 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
     // Position
     private Vector2 movement;
     private Vector2 velocity;
+    private Vector3 velocity3D = Vector3.zero;
 
     // Rotation
     private float pitch = 0;
@@ -45,15 +46,18 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
 
     private void FixedUpdate()
     {
-        velocity = movement * speed;
+        Vector3 direction = transform.forward * movement.y + transform.right * movement.x;
+        velocity3D = direction * speed;
+
+        // Vector2 distance = Time.deltaTime * velocity;
+        // Vector3 forwardDistance = transform.forward * distance.y;
+        // Vector3 sidewaysDistance = transform.right * distance.x;
+        // transform.position += forwardDistance + sidewaysDistance;
     }
 
     private void Update()
     {
-        Vector2 distance = Time.deltaTime * velocity;
-        Vector3 forwardDistance = transform.forward * distance.y;
-        Vector3 sidewaysDistance = transform.right * distance.x;
-        transform.position += forwardDistance + sidewaysDistance;
+        _manager.MovePlayer(velocity3D);
 
         pitch = Mathf.Clamp(pitch - lookInput.y * sensitivity, -PITCH_CLAMP, PITCH_CLAMP);
         _manager.LookVertically(pitch);

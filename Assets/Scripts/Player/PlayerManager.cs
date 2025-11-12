@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerManager : MonoBehaviour, IWeightable
 {
     public static PlayerManager Instance;
 
     public PlayerEventBus Bus { get; private set; }
 
+    private CharacterController controller;
     private PlayerInput playerInputComponent;
 
     [Header("Player Stats")]
@@ -31,6 +33,7 @@ public class PlayerManager : MonoBehaviour, IWeightable
         Bus = new PlayerEventBus();
 
         playerInputComponent = GetComponent<PlayerInput>();
+        controller = GetComponent<CharacterController>();
     }
 
     public void Start()
@@ -52,6 +55,12 @@ public class PlayerManager : MonoBehaviour, IWeightable
 
         foreach (var comp in GetComponents<IPlayerComponentable>())
             comp.Uninitialize();
+    }
+
+    public void MovePlayer(Vector3 velocity)
+    {
+        controller.Move(Time.deltaTime * velocity);
+        transform.position = controller.transform.position;
     }
 
     public void SwitchHover(IHoverableObject newHover)
