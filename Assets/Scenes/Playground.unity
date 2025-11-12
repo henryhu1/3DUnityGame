@@ -256,10 +256,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 142881409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe27f967743ce264e9408d0af23824d0, type: 3}
+  m_Script: {fileID: 11500000, guid: ff6deb76cbd3ed74daf4e3a040192c30, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PointLight
-  lightSO: {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::LightController
+  lightData: {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
 --- !u!1 &245681554
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 245681554}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 1.664, z: -20}
+  m_LocalPosition: {x: 11, y: 1.7979999, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 1.664, z: -20}
+  m_LocalPosition: {x: 11, y: 1.7979999, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -603,7 +603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8390114925147976691, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.921
+      value: -22.903
       objectReference: {fileID: 0}
     - target: {fileID: 8390114925147976691, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: 9100674996702933814, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
       propertyPath: 'controlledLights.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
+      objectReference: {fileID: 142881413}
     m_RemovedComponents:
     - {fileID: 7137537217174666291, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
     - {fileID: 4052561138848531479, guid: 95569f634525efd4a82b7c4c5b52b0bf, type: 3}
@@ -1495,14 +1495,12 @@ GameObject:
   - component: {fileID: 1878561134}
   - component: {fileID: 1878561133}
   - component: {fileID: 1878561132}
-  - component: {fileID: 1878561131}
-  - component: {fileID: 1878561130}
+  - component: {fileID: 1878561139}
   - component: {fileID: 1878561136}
   - component: {fileID: 1878561135}
   - component: {fileID: 1878561138}
   - component: {fileID: 1878561137}
   - component: {fileID: 1878561129}
-  - component: {fileID: 1878561139}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1652,56 +1650,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!54 &1878561130
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878561128}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &1878561131
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878561128}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1878561132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1767,7 +1715,7 @@ Transform:
   m_GameObject: {fileID: 1878561128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 1, z: -20}
+  m_LocalPosition: {x: 11, y: 1.134, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1907,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: 5568104297622238060, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
       propertyPath: 'controlledLights.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
+      objectReference: {fileID: 142881413}
     - target: {fileID: 9116017935841349273, guid: 4dd976d763e5d0c44a46e80655d41cfa, type: 3}
       propertyPath: m_Name
       value: PressurePlate
