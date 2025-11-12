@@ -23,7 +23,7 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject, IH
     {
         foreach (LightSO light in controlledLights)
         {
-            light.RegisterOnLightChangeCallback(SetLeverPosition);
+            light.OnLightChangeEvent += SetLeverPosition;
         }
     }
 
@@ -31,7 +31,7 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject, IH
     {
         foreach (LightSO light in controlledLights)
         {
-            light.UnregisterOnLightChangeCallback(SetLeverPosition);
+            light.OnLightChangeEvent -= SetLeverPosition;
         }
     }
 

@@ -14,12 +14,12 @@ public class PointLight : MonoBehaviour
 
     private void OnEnable()
     {
-        lightSO.RegisterOnLightChangeCallback(ToggleLight);
+        lightSO.OnLightChangeEvent += ToggleLight;
     }
 
     private void OnDisable()
     {
-        lightSO.UnregisterOnLightChangeCallback(ToggleLight);
+        lightSO.OnLightChangeEvent -= ToggleLight;
     }
 
     public void ToggleLight(bool isLightOn)
