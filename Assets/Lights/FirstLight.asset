@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823e962f2fdb14c43a6c1b92c4d1482c, type: 3}
   m_Name: FirstLight
   m_EditorClassIdentifier: Assembly-CSharp::LightSO
-  isLightOn: 1
+  isOn: 1

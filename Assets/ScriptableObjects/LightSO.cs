@@ -2,32 +2,26 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LightSO", menuName = "Scriptable Objects/LightSO")]
-public class LightSO : ScriptableObject, ILightable
+public class LightSO : ScriptableObject
 {
-    [SerializeField] private bool isLightOn;
+    [SerializeField] private bool isOn;
 
-    public event Action<bool> OnLightChangeEvent;
+    /// <summary>
+    /// Fired when the light data changes (true = ON, false = OFF).
+    /// </summary>
+    public event Action<bool> OnLightChanged;
 
-    public bool GetIsLightOn()
+    public bool IsOn => isOn;
+
+    /// <summary>
+    /// Set the light value. Will only invoke event if changed.
+    /// </summary>
+    public void SetState(bool newState)
     {
-        return isLightOn;
-    }
+        if (isOn == newState)
+            return;
 
-    public void ToggleLight()
-    {
-        isLightOn = !isLightOn;
-        OnLightChangeEvent?.Invoke(isLightOn);
-    }
-
-    public void TurnOff()
-    {
-        isLightOn = false;
-        OnLightChangeEvent?.Invoke(isLightOn);
-    }
-
-    public void TurnOn()
-    {
-        isLightOn = true;
-        OnLightChangeEvent?.Invoke(isLightOn);
+        isOn = newState;
+        OnLightChanged?.Invoke(isOn);
     }
 }

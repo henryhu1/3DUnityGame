@@ -12,32 +12,16 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject, IH
     private Color baseColor;
 
     [Header("Lights")]
-    [SerializeField] private LightSO[] controlledLights;
+    [SerializeField] private LightController[] controlledLights;
 
     private void Start()
     {
         baseColor = rend.material.GetColor("_EmissionColor");
     }
 
-    private void OnEnable()
-    {
-        foreach (LightSO light in controlledLights)
-        {
-            light.OnLightChangeEvent += SetLeverPosition;
-        }
-    }
-
-    private void OnDisable()
-    {
-        foreach (LightSO light in controlledLights)
-        {
-            light.OnLightChangeEvent -= SetLeverPosition;
-        }
-    }
-
     public void ToggleLight()
     {
-        foreach (LightSO light in controlledLights)
+        foreach (LightController light in controlledLights)
         {
             light.ToggleLight();
         }

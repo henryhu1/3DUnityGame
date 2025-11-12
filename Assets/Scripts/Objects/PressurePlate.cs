@@ -10,7 +10,7 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
     [SerializeField] private Transform detectionPlate;
 
     [Header("Lights")]
-    [SerializeField] private LightSO[] controlledLights;
+    [SerializeField] private LightController[] controlledLights;
 
     public void HandleEnter(Collider other)
     {
@@ -46,7 +46,7 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
 
     public void ToggleLight()
     {
-        foreach (LightSO light in controlledLights)
+        foreach (LightController light in controlledLights)
         {
             if (isPlateDown) light.TurnOff();
             else light.TurnOn();
