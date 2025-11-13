@@ -1734,7 +1734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba241f83fa0dfcf4f90e40a22018288b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementHandler
-  speed: 3
+  speed: 5
+  gravity: -9.81
+  groundedGravity: -2
   sensitivity: 0.5
 --- !u!114 &1878561136
 MonoBehaviour:
