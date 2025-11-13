@@ -7,7 +7,6 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
 
     // Position
     private Vector2 movement;
-    private Vector2 velocity;
     private Vector3 velocity3D = Vector3.zero;
 
     // Rotation
@@ -17,6 +16,8 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
 
     // @TODO: move to a settings ScriptableObject configuration
     [SerializeField] private float speed = 3;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float groundedGravity = -2f;
     [SerializeField] private float sensitivity = 0.5f;
 
     public void Initialize(PlayerManager manager, PlayerEventBus bus)
@@ -47,12 +48,21 @@ public class PlayerMovementHandler : MonoBehaviour, IPlayerComponentable, IOnPla
     private void FixedUpdate()
     {
         Vector3 direction = transform.forward * movement.y + transform.right * movement.x;
-        velocity3D = direction * speed;
 
-        // Vector2 distance = Time.deltaTime * velocity;
-        // Vector3 forwardDistance = transform.forward * distance.y;
-        // Vector3 sidewaysDistance = transform.right * distance.x;
-        // transform.position += forwardDistance + sidewaysDistance;
+        bool isGrounded = _manager.IsGrounded();
+        if (isGrounded && velocity3D.y < 0)
+        {
+            velocity3D.y = groundedGravity;
+        }
+        else
+        {
+            velocity3D.y += gravity * Time.deltaTime;
+        }
+
+        Vector3 groundVelocity = direction * speed;
+
+        velocity3D.x = groundVelocity.x;
+        velocity3D.z = groundVelocity.z;
     }
 
     private void Update()

@@ -63,6 +63,11 @@ public class PlayerManager : MonoBehaviour, IWeightable
         transform.position = controller.transform.position;
     }
 
+    public bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, controller.height / 2f + 0.2f);
+    }
+
     public void SwitchHover(IHoverableObject newHover)
     {
         if (currentHover != newHover)
