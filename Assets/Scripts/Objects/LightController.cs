@@ -1,9 +1,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Light))]
-public class LightController : MonoBehaviour, ILightable
+public class LightController : MonoBehaviour
 {
-    [SerializeField] private LightSO lightData;
+    [SerializeField] private LightSO[] sources;
+    [SerializeField] private LightGroupEvaluator evaluator = new();
 
     private Light unityLight;
 
@@ -14,36 +15,26 @@ public class LightController : MonoBehaviour, ILightable
 
     private void OnEnable()
     {
-        if (lightData != null)
-        {
-            lightData.OnLightChanged += Apply;
-            Apply(lightData.IsOn);
-        }
+        foreach (var so in sources)
+            so.OnLightChanged += OnSourceChanged;
+
+        ApplyFinalState();
     }
 
     private void OnDisable()
     {
-        if (lightData != null)
-            lightData.OnLightChanged -= Apply;
+        foreach (var so in sources)
+            so.OnLightChanged -= OnSourceChanged;
     }
 
-    private void Apply(bool isOn)
+    private void OnSourceChanged(bool _)
     {
+        ApplyFinalState();
+    }
+
+    private void ApplyFinalState()
+    {
+        bool isOn = evaluator.GetLightsState(sources);
         unityLight.enabled = isOn;
-    }
-
-    public void TurnOn()
-    {
-        lightData.SetState(true);
-    }
-
-    public void TurnOff()
-    {
-        lightData.SetState(false);
-    }
-
-    public void ToggleLight()
-    {
-        lightData.SetState(!lightData.IsOn);
     }
 }
