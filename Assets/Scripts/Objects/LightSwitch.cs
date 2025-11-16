@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject, IHighlightableObject
+public class LightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
 {
     [Header("Model")]
     [SerializeField] private Vector3 onRotation;
@@ -39,24 +39,24 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IHoverableObject, IH
         }
     }
 
-    public void OnCenterEnter()
+    public void OnInteractHover()
     {
         Highlight(true);
     }
 
-    public void OnCenterExit()
+    public void OnInteractExit()
     {
         Highlight(false);
     }
 
-    public void OnCenterClick()
+    public void OnInteract()
     {
         ToggleLight();
     }
 
-    public void Highlight(bool isOn)
+    public void Highlight(bool isHighlighted)
     {
-        if (isOn)
+        if (isHighlighted)
             rend.material.SetColor("_EmissionColor", highlightColor);
         else
             rend.material.SetColor("_EmissionColor", baseColor);

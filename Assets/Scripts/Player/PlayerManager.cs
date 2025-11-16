@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour, IWeightable
     [SerializeField] private CameraEventChannel cameraEvents;
     [SerializeField] private GameObject headPivot;
 
-    private IHoverableObject currentHover;
+    private IInterableObject currentInteractable;
 
     private void Awake()
     {
@@ -68,20 +68,20 @@ public class PlayerManager : MonoBehaviour, IWeightable
         return Physics.Raycast(transform.position, Vector3.down, controller.height / 2f + 0.2f);
     }
 
-    public void SwitchHover(IHoverableObject newHover)
+    public void SwitchHover(IInterableObject newInteractable)
     {
-        if (currentHover != newHover)
+        if (currentInteractable != newInteractable)
         {
-            currentHover?.OnCenterExit();
-            newHover.OnCenterEnter();
-            currentHover = newHover;
+            currentInteractable?.OnInteractHover();
+            newInteractable.OnInteractHover();
+            currentInteractable = newInteractable;
         }
     }
 
     public void LeaveHover()
     {
-        currentHover?.OnCenterExit();
-        currentHover = null;
+        currentInteractable?.OnInteractExit();
+        currentInteractable = null;
     }
 
     public void LookVertically(float pitch)
@@ -91,7 +91,7 @@ public class PlayerManager : MonoBehaviour, IWeightable
 
     public void InteractWithHovering()
     {
-        currentHover?.OnCenterClick();
+        currentInteractable?.OnInteract();
     }
 
     public void ApplyDamage(int dmg)
