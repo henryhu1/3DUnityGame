@@ -12,7 +12,7 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
     private Color baseColor;
 
     [Header("Lights")]
-    [SerializeField] private LightSO[] controlledLights;
+    [SerializeField] private LightSO[] sources;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
 
     public void ToggleLight()
     {
-        foreach (LightSO light in controlledLights)
+        foreach (LightSO light in sources)
         {
             light.SetState(!light.IsOn);
         }

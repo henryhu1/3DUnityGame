@@ -1,17 +1,10 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Light))]
 public class LightController : MonoBehaviour
 {
+    [SerializeField] private Light[] controlledLights;
     [SerializeField] private LightSO[] sources;
-    [SerializeField] private LightGroupEvaluator evaluator = new();
-
-    private Light unityLight;
-
-    private void Awake()
-    {
-        unityLight = GetComponent<Light>();
-    }
+    private LightGroupEvaluator evaluator = new();
 
     private void OnEnable()
     {
@@ -35,6 +28,7 @@ public class LightController : MonoBehaviour
     private void ApplyFinalState()
     {
         bool isOn = evaluator.GetLightsState(sources);
-        unityLight.enabled = isOn;
+        foreach (Light light in controlledLights)
+            light.enabled = isOn;
     }
 }
