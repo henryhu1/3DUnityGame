@@ -72,7 +72,7 @@ public class PlayerManager : MonoBehaviour, IWeightable
     {
         if (currentInteractable != newInteractable)
         {
-            currentInteractable?.OnInteractHover();
+            currentInteractable?.OnInteractExit();
             newInteractable.OnInteractHover();
             currentInteractable = newInteractable;
         }
