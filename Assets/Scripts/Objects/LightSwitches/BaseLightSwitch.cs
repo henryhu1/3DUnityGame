@@ -1,11 +1,8 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
+public class BaseLightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
 {
     [Header("Model")]
-    [SerializeField] private Vector3 onRotation;
-    [SerializeField] private Vector3 offRotation;
-    [SerializeField] private Transform pointOfRotation;
     [SerializeField] private Renderer rend;
 
     [SerializeField] private Color highlightColor = Color.cyan;
@@ -24,18 +21,6 @@ public class LightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
         foreach (LightSO light in sources)
         {
             light.SetState(!light.IsOn);
-        }
-    }
-
-    private void SetLeverPosition(bool isLightOn)
-    {
-        if (isLightOn)
-        {
-            pointOfRotation.rotation = Quaternion.Euler(onRotation);
-        }
-        else
-        {
-            pointOfRotation.rotation = Quaternion.Euler(offRotation);
         }
     }
 
