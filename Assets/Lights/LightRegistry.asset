@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf09238ae648ab449b94b98b7fc956d, type: 3}
+  m_Name: LightRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::LightRegistrySO
+  lights:
+  - {fileID: 11400000, guid: 6b937562b1300f047bdaa0dde57b8444, type: 2}
+  - {fileID: 11400000, guid: af2c8acb9aa55de4dba62c54590221bb, type: 2}
+  - {fileID: 11400000, guid: 208f01444830b7b40a2eaf6ec1ec3db2, type: 2}
+  - {fileID: 11400000, guid: 0f01ea7ce9766ef4aa04df77fffe6577, type: 2}
+  - {fileID: 11400000, guid: 0937c723ec4237a44848853de55de230, type: 2}
+  - {fileID: 11400000, guid: e1f787692ba99d24382d30b25f318f02, type: 2}
+  - {fileID: 11400000, guid: 01ee1087851ccc3488d9f1474e41d34d, type: 2}
+  - {fileID: 11400000, guid: 44a522fcac203a14fbfc91b553724668, type: 2}
+  - {fileID: 11400000, guid: c635029baf70dd04b92659cf8f8bb5c7, type: 2}
+  - {fileID: 11400000, guid: 04939d67bf8d4504f8d3e1321f3f3002, type: 2}
+  - {fileID: 11400000, guid: d91559cbafc65a244b8f2b1d4a72172e, type: 2}
+  - {fileID: 11400000, guid: f7ef7f06c74daa34da7c7a1df934657b, type: 2}
+  - {fileID: 11400000, guid: 5bd195dac8b38494f89b75433d791523, type: 2}
+  - {fileID: 11400000, guid: 22dba8582c5a70d4aa31121422667cf6, type: 2}
