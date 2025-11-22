@@ -24,6 +24,11 @@ public class BaseLightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
         }
     }
 
+    public void SetBaseColor(Color color)
+    {
+        baseColor = color;
+    }
+
     public void OnInteractHover()
     {
         Highlight(true);

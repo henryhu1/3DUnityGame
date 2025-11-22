@@ -3,8 +3,8 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
     [SerializeField] private Light[] controlledLights;
-    [SerializeField] private LightSO[] sources;
-    private LightGroupEvaluator evaluator = new();
+    [SerializeField] protected LightSO[] sources;
+    protected LightGroupEvaluator evaluator = new();
 
     private void OnEnable()
     {
@@ -25,7 +25,7 @@ public class LightController : MonoBehaviour
         ApplyFinalState();
     }
 
-    private void ApplyFinalState()
+    protected virtual void ApplyFinalState()
     {
         bool isOn = evaluator.GetLightsState(sources);
         foreach (Light light in controlledLights)
