@@ -1,9 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class PlayerDetector : MonoBehaviour, ILightSwitchable
+public class Detector : MonoBehaviour, ILightSwitchable
 {
     private Collider detector;
+
+    [SerializeField] private string targetTag;
     
     [Header("Lights")]
     [SerializeField] private LightSO[] sources;
@@ -15,7 +17,8 @@ public class PlayerDetector : MonoBehaviour, ILightSwitchable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log($"trigger exit {name}");
+        if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
         {
             ToggleLight();
         }
