@@ -14,7 +14,7 @@ public class RotatingHand : MonoBehaviour
 
     private void OnEnable()
     {
-        pointOfRotation.rotation = Quaternion.Euler(new (rotationStart, 0, 0));
+        pointOfRotation.rotation = Quaternion.Euler(new (0, 0, rotationStart));
         rotatingCoroutine = StartCoroutine(RotateHand());
     }
 
@@ -53,7 +53,7 @@ public class RotatingHand : MonoBehaviour
                 time -= period;
             }
 
-            pointOfRotation.rotation = Quaternion.Euler(new (rotation, 0, 0));
+            pointOfRotation.rotation = Quaternion.Euler(new (0, 0, rotation));
             time += Time.deltaTime;
             yield return null;
         }
