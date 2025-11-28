@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
             GameObject hitObj = hit.collider.gameObject;
-            if (hitObj.TryGetComponent(out IInterableObject interactable))
+            if (hitObj.TryGetComponent(out IInteractableObject interactable))
             {
                 PlayerManager.Instance.SwitchHover(interactable);
             }

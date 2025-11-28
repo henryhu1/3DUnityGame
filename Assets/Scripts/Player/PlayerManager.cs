@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour, IWeightable
     [SerializeField] private CameraEventChannel cameraEvents;
     [SerializeField] private GameObject headPivot;
 
-    private IInterableObject currentInteractable;
+    private IInteractableObject currentInteractable;
 
     private void Awake()
     {
@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour, IWeightable
         return Physics.Raycast(transform.position, Vector3.down, controller.height / 2f + 0.2f);
     }
 
-    public void SwitchHover(IInterableObject newInteractable)
+    public void SwitchHover(IInteractableObject newInteractable)
     {
         if (currentInteractable != newInteractable)
         {

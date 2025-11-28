@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseLightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
+public class BaseLightSwitch : MonoBehaviour, IInteractableObject
 {
     [Header("Model")]
     [SerializeField] private Renderer rend;
@@ -11,7 +11,7 @@ public class BaseLightSwitch : MonoBehaviour, ILightSwitchable, IInterableObject
     [Header("Lights")]
     [SerializeField] private LightSO[] sources;
 
-    private void Start()
+    private void Awake()
     {
         baseColor = rend.material.GetColor("_EmissionColor");
     }

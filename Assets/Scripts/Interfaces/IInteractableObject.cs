@@ -1,4 +1,4 @@
-public interface IInterableObject
+public interface IInteractableObject
 {
     void OnInteractHover();
     void OnInteractExit();

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Door : MonoBehaviour, IInterableObject
+public class Door : MonoBehaviour, IInteractableObject
 {
     [Header("Model")]
     [SerializeField] private Collider mainCollider;
@@ -19,7 +19,7 @@ public class Door : MonoBehaviour, IInterableObject
 
     private void OpenDoor()
     {
-        mainCollider.enabled = false;
+        mainCollider.isTrigger = true;
 
         anim.SetBool("open", true);
 
@@ -30,7 +30,7 @@ public class Door : MonoBehaviour, IInterableObject
 
     private void CloseDoor()
     {
-        mainCollider.enabled = true;
+        mainCollider.isTrigger = false;
 
         anim.SetBool("open", false);
 
