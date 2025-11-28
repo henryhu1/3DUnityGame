@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PressurePlate : MonoBehaviour, ILightSwitchable
+public class PressurePlate : MonoBehaviour
 {
     private bool isPlateDown = false;
 
@@ -9,8 +9,8 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
     [SerializeField] private float pressedHeight = 0.5f;
     [SerializeField] private Transform detectionPlate;
 
-    [Header("Lights")]
-    [SerializeField] private LightSO[] sources;
+    [Header("Events")]
+    [SerializeField] private SwitchEventChannelSO switchEvent;
 
     public void HandleEnter(Collider other)
     {
@@ -19,7 +19,7 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
             if (!isPlateDown)
             {
                 isPlateDown = true;
-                ToggleLight();
+                switchEvent.InvokeChange(true);
 
                 Vector3 newPosition = detectionPlate.localPosition;
                 newPosition.y = pressedHeight;
@@ -35,21 +35,12 @@ public class PressurePlate : MonoBehaviour, ILightSwitchable
             if (isPlateDown)
             {
                 isPlateDown = false;
-                ToggleLight();
+                switchEvent.InvokeChange(false);
 
                 Vector3 newPosition = detectionPlate.localPosition;
                 newPosition.y = liftedHeight;
                 detectionPlate.localPosition = newPosition;
             }
-        }
-    }
-
-    public void ToggleLight()
-    {
-        foreach (LightSO light in sources)
-        {
-            if (isPlateDown) light.SetState(false);
-            else light.SetState(true);
         }
     }
 }

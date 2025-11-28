@@ -8,20 +8,12 @@ public class BaseLightSwitch : MonoBehaviour, IInteractableObject
     [SerializeField] private Color highlightColor = Color.cyan;
     private Color baseColor;
 
-    [Header("Lights")]
-    [SerializeField] private LightSO[] sources;
+    [Header("Events")]
+    [SerializeField] private SwitchEventChannelSO switchEvent;
 
     private void Awake()
     {
         baseColor = rend.material.GetColor("_EmissionColor");
-    }
-
-    public void ToggleLight()
-    {
-        foreach (LightSO light in sources)
-        {
-            light.SetState(!light.IsOn);
-        }
     }
 
     public void SetBaseColor(Color color)
@@ -41,7 +33,7 @@ public class BaseLightSwitch : MonoBehaviour, IInteractableObject
 
     public void OnInteract()
     {
-        ToggleLight();
+        switchEvent.InvokeToggle();
     }
 
     public void Highlight(bool isHighlighted)
