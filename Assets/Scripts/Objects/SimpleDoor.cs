@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Door : MonoBehaviour, IInteractableObject
+public class SimpleDoor : MonoBehaviour, IInteractableObject
 {
     [Header("Model")]
     [SerializeField] private Collider mainCollider;
