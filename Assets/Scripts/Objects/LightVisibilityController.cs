@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightController : MonoBehaviour
+public class LightVisibilityController : MonoBehaviour
 {
     [SerializeField] private Light[] controlledLights;
     [SerializeField] protected LightSO[] sources;

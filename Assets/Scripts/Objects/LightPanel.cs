@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightPanel : LightController
+public class LightPanel : LightVisibilityController
 {
     [Header("Model")]
     [SerializeField] private Renderer rend;
