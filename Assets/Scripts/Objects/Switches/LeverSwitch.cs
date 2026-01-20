@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightSwitch : BaseLightSwitch
+public class LeverSwitch : BaseSwitch
 {
     [Header("Lever")]
     [SerializeField] private Vector3 onRotation;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseLightSwitch : MonoBehaviour, IInteractableObject
+public class BaseSwitch : MonoBehaviour, IInteractableObject
 {
     [Header("Model")]
     [SerializeField] private Renderer rend;

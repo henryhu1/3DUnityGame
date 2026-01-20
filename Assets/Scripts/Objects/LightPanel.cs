@@ -5,7 +5,7 @@ public class LightPanel : LightController
     [Header("Model")]
     [SerializeField] private Renderer rend;
 
-    private BaseLightSwitch baseLightSwitch;
+    private BaseSwitch baseSwitch;
 
     private Color litColor = Color.gold;
     private Color baseColor;
@@ -17,7 +17,7 @@ public class LightPanel : LightController
 
     private void Start()
     {
-        TryGetComponent(out baseLightSwitch);
+        TryGetComponent(out baseSwitch);
     }
 
     protected override void ApplyFinalState()
@@ -28,12 +28,12 @@ public class LightPanel : LightController
         if (isOn)
         {
             rend.material.SetColor("_EmissionColor", litColor);
-            if (baseLightSwitch != null) baseLightSwitch.SetBaseColor(litColor);
+            if (baseSwitch != null) baseSwitch.SetBaseColor(litColor);
         }
         else
         {
             rend.material.SetColor("_EmissionColor", baseColor);
-            if (baseLightSwitch != null) baseLightSwitch.SetBaseColor(baseColor);
+            if (baseSwitch != null) baseSwitch.SetBaseColor(baseColor);
         }
     }
 }
