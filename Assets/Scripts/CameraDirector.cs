@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CameraDirector : MonoBehaviour
 {
+    [SerializeField] private Transform playerHead;
     [SerializeField] private CameraEventChannel channel;
     [SerializeField] private CinemachineCamera playerCam;
     [SerializeField] private CinemachineCamera focusCam;
@@ -10,7 +11,6 @@ public class CameraDirector : MonoBehaviour
 
     private void Start()
     {
-        Transform playerHead = PlayerManager.Instance.getHeadPivotTransform();
         playerCam.Follow = playerHead;
         playerCam.LookAt = playerHead;
     }
