@@ -16,22 +16,4 @@ public class GameManager : MonoBehaviour
             light.SetState(true);
         }
     }
-
-    void Update()
-    {
-        Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
-        {
-            GameObject hitObj = hit.collider.gameObject;
-            if (hitObj.TryGetComponent(out IInteractableObject interactable))
-            {
-                PlayerManager.Instance.SwitchHover(interactable);
-            }
-        }
-        else
-        {
-            PlayerManager.Instance.LeaveHover();
-        }
-    }
 }
