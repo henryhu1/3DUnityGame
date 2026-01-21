@@ -5,15 +5,15 @@ public class BaseSwitch : MonoBehaviour, IInteractableObject
     [Header("Events")]
     [SerializeField] private SwitchEventChannelSO switchEvent;
 
-    public void OnInteractHover()
+    public void OnHoverEnter()
     {
     }
 
-    public void OnInteractExit()
+    public void OnHoverExit()
     {
     }
 
-    public void OnInteract()
+    public void OnInteract(PlayerInteractHandler interactor)
     {
         switchEvent.InvokeToggle();
     }

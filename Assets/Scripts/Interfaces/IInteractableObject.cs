@@ -1,6 +1,6 @@
 public interface IInteractableObject
 {
-    void OnInteractHover();
-    void OnInteractExit();
-    void OnInteract();
+    void OnHoverEnter();
+    void OnHoverExit();
+    void OnInteract(PlayerInteractHandler interactor);
 }

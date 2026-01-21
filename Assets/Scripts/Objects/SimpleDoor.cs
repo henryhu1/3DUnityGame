@@ -39,15 +39,15 @@ public class SimpleDoor : MonoBehaviour, IInteractableObject
             aud.Play();
     }
 
-    public void OnInteractHover()
+    public void OnHoverEnter()
     {
     }
 
-    public void OnInteractExit()
+    public void OnHoverExit()
     {
     }
 
-    public void OnInteract()
+    public void OnInteract(PlayerInteractHandler interactor)
     {
         OpenDoor();
     }
