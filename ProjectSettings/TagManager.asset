@@ -12,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Interactable_Static
+  - Interactable_Physics
+  - HeldObject
   - 
   - 
   - 

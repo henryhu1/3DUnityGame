@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3005816796425995711}
   - component: {fileID: 412871980850454905}
   - component: {fileID: 1375625201230933557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 2902297341682666932}
   - component: {fileID: 9203411877570074436}
   - component: {fileID: 4778307307800692350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ButtonLightSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,8 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a516ec643f7cbe54cada5f07d70671bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseLightSwitch
-  rend: {fileID: 3192494298636107908}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
   switchEvent: {fileID: 0}
 --- !u!114 &4778307307800692350
 MonoBehaviour:

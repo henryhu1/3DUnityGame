@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4570056316387306452}
   - component: {fileID: 2157521877196893030}
   - component: {fileID: 150816554453450822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 3486361230908184996}
   - component: {fileID: 6183404048874103800}
   - component: {fileID: 846904402460283700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 8390114925147976691}
   - component: {fileID: 9100674996702933814}
   - component: {fileID: 8724397154382701679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,12 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073d2fd459101a444aebaf3cea3320e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightSwitch
+  switchEvent: {fileID: 0}
   onRotation: {x: -30, y: 0, z: 0}
   offRotation: {x: 30, y: 0, z: 0}
   pointOfRotation: {fileID: 9068484247221687132}
-  rend: {fileID: 6183404048874103800}
-  highlightColor: {r: 0, g: 1, b: 1, a: 1}
-  controlledLights: []
 --- !u!65 &8724397154382701679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -309,7 +307,7 @@ GameObject:
   - component: {fileID: 4143394370476645510}
   - component: {fileID: 7939015798382264071}
   - component: {fileID: 7722468020035710832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
