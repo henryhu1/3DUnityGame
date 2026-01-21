@@ -51,8 +51,4 @@ public class SimpleDoor : MonoBehaviour, IInteractableObject
     {
         OpenDoor();
     }
-
-    public void Highlight(bool isOn)
-    {
-    }
 }
