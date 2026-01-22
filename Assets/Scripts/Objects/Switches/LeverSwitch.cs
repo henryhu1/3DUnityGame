@@ -7,15 +7,36 @@ public class LeverSwitch : BaseSwitch
     [SerializeField] private Vector3 offRotation;
     [SerializeField] private Transform pointOfRotation;
 
-    private void SetLeverPosition(bool isLightOn)
+    private bool isOnRotation;
+
+    public void OnEnable()
     {
-        if (isLightOn)
+        isOnRotation = true;
+        SetLeverPosition();
+    }
+
+    public override void OnInteract(PlayerInteractHandler interactor)
+    {
+        base.OnInteract(interactor);
+
+        ToggleLeverRotation();
+        SetLeverPosition();
+    }
+
+    private void ToggleLeverRotation()
+    {
+        isOnRotation = !isOnRotation;
+    }
+
+    private void SetLeverPosition()
+    {
+        if (isOnRotation)
         {
-            pointOfRotation.rotation = Quaternion.Euler(onRotation);
+            pointOfRotation.localRotation = Quaternion.Euler(onRotation);
         }
         else
         {
-            pointOfRotation.rotation = Quaternion.Euler(offRotation);
+            pointOfRotation.localRotation = Quaternion.Euler(offRotation);
         }
     }
 }
