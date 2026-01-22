@@ -4,7 +4,7 @@ public class LightVisibilityController : MonoBehaviour
 {
     [SerializeField] private Light[] controlledLights;
     [SerializeField] protected LightSO[] sources;
-    protected LightGroupEvaluator evaluator = new();
+    [SerializeField] private LightGroupEvaluatorSO evaluator;
 
     private void OnEnable()
     {
@@ -27,7 +27,7 @@ public class LightVisibilityController : MonoBehaviour
 
     protected virtual void ApplyFinalState()
     {
-        bool isOn = evaluator.GetLightsState(sources);
+        bool isOn = evaluator.Evaluate(sources);
         foreach (Light light in controlledLights)
             light.enabled = isOn;
     }
