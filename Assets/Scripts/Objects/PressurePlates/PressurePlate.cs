@@ -4,6 +4,8 @@ public class PressurePlate : MonoBehaviour
 {
     private bool isPlateDown = false;
 
+    [SerializeField] private bool isOneWayDownDetection = false;
+
     [Header("Model")]
     [SerializeField] private float liftedHeight = 1;
     [SerializeField] private float pressedHeight = 0.5f;
@@ -35,7 +37,11 @@ public class PressurePlate : MonoBehaviour
             if (isPlateDown)
             {
                 isPlateDown = false;
-                switchEvent.InvokeChange(false);
+
+                if (!isOneWayDownDetection)
+                {
+                    switchEvent.InvokeChange(false);
+                }
 
                 Vector3 newPosition = detectionPlate.localPosition;
                 newPosition.y = liftedHeight;
