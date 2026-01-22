@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInteractHandler : MonoBehaviour, IPlayerComponentable, IOnPlayerInteract
@@ -9,6 +10,7 @@ public class PlayerInteractHandler : MonoBehaviour, IPlayerComponentable, IOnPla
 
     // [Header("Firing Events")]
     // [SerializeField] private InteractableObjectEvent focusEvent;
+    public Action<bool> OnInteractableHover;
 
     public Transform CameraTransform => playerCamera.transform;
 
@@ -33,6 +35,9 @@ public class PlayerInteractHandler : MonoBehaviour, IPlayerComponentable, IOnPla
     private void Update()
     {
         IInteractableObject next = DetectInteractable();
+
+        OnInteractableHover?.Invoke(next != null);
+
         if (next == null)
         {
             LeaveHover();
