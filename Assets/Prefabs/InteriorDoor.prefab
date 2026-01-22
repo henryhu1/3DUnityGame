@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2945555025818241331}
   - component: {fileID: 2945555025818241330}
   - component: {fileID: -8392317572420263110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InteriorDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 2945555025611480003}
   - component: {fileID: 2945555025608580067}
   - component: {fileID: 2945555025609709859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorInt1Adoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
