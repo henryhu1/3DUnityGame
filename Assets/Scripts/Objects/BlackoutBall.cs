@@ -1,58 +1,55 @@
 using UnityEngine;
 
-public class BlackoutBall : MonoBehaviour, IHoldable
+public class BlackoutBall : MonoBehaviour, IHoldable, IInteractableObject
 {
     [SerializeField] Collider[] colliders;
 
-    [Header("Settings")]
-    [SerializeField] float holdDistance = 2.5f;
-    [SerializeField] float followSpeed = 15f;
+    private Rigidbody _rb;
 
-    public Rigidbody Rigidbody { get; private set; }
-
-    bool isHeld;
-    PlayerInteractHandler holder;
-
-    int originalLayer;
+    private bool isHeld;
+    private int originalLayer;
 
     private void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         originalLayer = gameObject.layer;
     }
 
-    private void LateUpdate()
-    {
-        if (!isHeld) return;
-
-        Transform cam = holder.CameraTransform;
-
-        transform.position =
-            cam.position + cam.forward * holdDistance;
-    }
-
-    void Pickup(PlayerInteractHandler interactor)
+    public void OnPickUp(HoldContext context)
     {
         isHeld = true;
-        holder = interactor;
+        gameObject.layer = LayerMask.NameToLayer("HeldObject");
 
-        Rigidbody.isKinematic = true;
-        Rigidbody.useGravity = false;
+        _rb.isKinematic = true;
+        _rb.useGravity = false;
 
         foreach (var col in colliders)
             col.enabled = false;
     }
 
-    private void Release()
+    public void OnRelease(HoldContext context)
     {
         isHeld = false;
-        holder = null;
+        gameObject.layer = originalLayer;
 
         foreach (var col in colliders)
             col.enabled = true;
 
-        Rigidbody.isKinematic = false;
-        Rigidbody.useGravity = true;
+        _rb.isKinematic = false;
+        _rb.useGravity = true;
+    }
+
+    public void OnHoldUpdate(HoldContext context)
+    {
+        transform.SetPositionAndRotation(Vector3.Lerp(
+            transform.position,
+            context.HoldAnchor.position,
+            Time.deltaTime * 20f
+        ), Quaternion.Slerp(
+            transform.rotation,
+            context.HoldAnchor.rotation,
+            Time.deltaTime * 20f
+        ));
     }
 
     public void OnHoverEnter()
@@ -63,15 +60,16 @@ public class BlackoutBall : MonoBehaviour, IHoldable
     {
     }
 
-    public void OnInteract(PlayerInteractHandler interactor)
+    public void OnInteract(InteractionContext ctx)
     {
-        if (isHeld)
+        if (!isHeld)
         {
-            Release();
+            ctx.InteractionController.PickUp(this);
         }
-        else
-        {
-            Pickup(interactor);
-        }
+    }
+
+    public bool CanInteract(PlayerInteractionState state)
+    {
+        return state == PlayerInteractionState.Free;
     }
 }
