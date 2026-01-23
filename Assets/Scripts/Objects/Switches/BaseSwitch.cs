@@ -13,8 +13,13 @@ public class BaseSwitch : MonoBehaviour, IInteractableObject
     {
     }
 
-    public virtual void OnInteract(PlayerInteractHandler interactor)
+    public virtual void OnInteract()
     {
         switchEvent.InvokeToggle();
+    }
+
+    public bool CanInteract(PlayerInteractionState state)
+    {
+        return state == PlayerInteractionState.Free;
     }
 }

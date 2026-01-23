@@ -47,8 +47,13 @@ public class SimpleDoor : MonoBehaviour, IInteractableObject
     {
     }
 
-    public void OnInteract(PlayerInteractHandler interactor)
+    public void OnInteract()
     {
         OpenDoor();
+    }
+
+    public bool CanInteract(PlayerInteractionState state)
+    {
+        return state == PlayerInteractionState.Free;
     }
 }
