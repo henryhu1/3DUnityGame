@@ -2,6 +2,6 @@ public interface IInteractableObject
 {
     void OnHoverEnter();
     void OnHoverExit();
-    void OnInteract();
+    void OnInteract(InteractionContext ctx);
     bool CanInteract(PlayerInteractionState state);
 }

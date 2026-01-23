@@ -13,7 +13,7 @@ public class BaseSwitch : MonoBehaviour, IInteractableObject
     {
     }
 
-    public virtual void OnInteract()
+    public virtual void OnInteract(InteractionContext _)
     {
         switchEvent.InvokeToggle();
     }

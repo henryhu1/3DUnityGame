@@ -15,9 +15,9 @@ public class LeverSwitch : BaseSwitch
         SetLeverPosition();
     }
 
-    public override void OnInteract(PlayerInteractHandler interactor)
+    public override void OnInteract(InteractionContext _)
     {
-        base.OnInteract(interactor);
+        base.OnInteract(_);
 
         ToggleLeverRotation();
         SetLeverPosition();

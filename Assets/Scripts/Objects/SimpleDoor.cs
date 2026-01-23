@@ -47,7 +47,7 @@ public class SimpleDoor : MonoBehaviour, IInteractableObject
     {
     }
 
-    public void OnInteract()
+    public void OnInteract(InteractionContext _)
     {
         OpenDoor();
     }
