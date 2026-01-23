@@ -1,6 +1,6 @@
-using UnityEngine;
-
-public interface IHoldable : IInteractableObject
+public interface IHoldable
 {
-    Rigidbody Rigidbody { get; }
+    void OnPickUp(HoldContext context);
+    void OnHoldUpdate(HoldContext context);
+    void OnRelease(HoldContext context);
 }
