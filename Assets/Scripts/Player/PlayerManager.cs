@@ -14,6 +14,9 @@ public class PlayerManager : MonoBehaviour, IWeightable
     // @TODO: move to a settings ScriptableObject configuration
     [SerializeField] private float weight = 1;
 
+    [Header("Actionables")]
+    [SerializeField] private Light flashlight;
+
     [Header("Camera")]
     [SerializeField] private CameraEventChannel cameraEvents;
     [SerializeField] private GameObject headPivot;
@@ -26,25 +29,34 @@ public class PlayerManager : MonoBehaviour, IWeightable
         controller = GetComponent<CharacterController>();
     }
 
-    public void Start()
+    private void Start()
     {
         cameraEvents.RaiseReturn();
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
         playerInputComponent.enabled = true;
 
+        Bus.OnFlashlightToggle += ToggleFlashlight;
         foreach (var comp in GetComponents<IPlayerComponentable>())
             comp.Initialize(this, Bus);
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         playerInputComponent.enabled = false;
 
+        Bus.OnFlashlightToggle -= ToggleFlashlight;
         foreach (var comp in GetComponents<IPlayerComponentable>())
             comp.Uninitialize();
+    }
+
+    private void ToggleFlashlight(bool isPressed)
+    {
+        if (isPressed) return;
+
+        flashlight.enabled = !flashlight.enabled;
     }
 
     public void MovePlayer(Vector3 velocity)
