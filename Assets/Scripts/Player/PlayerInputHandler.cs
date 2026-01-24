@@ -29,4 +29,9 @@ public class PlayerInputHandler : MonoBehaviour, IPlayerComponentable
     {
         _bus.RaiseInteract(context.ReadValueAsButton());
     }
+
+    public void OnAction(InputAction.CallbackContext context)
+    {
+        _bus.RaiseFlashlightToggle(context.ReadValueAsButton());
+    }
 }

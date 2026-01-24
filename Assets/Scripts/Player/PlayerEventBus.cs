@@ -10,6 +10,7 @@ public class PlayerEventBus
     public event Action<Vector2> OnMove;
     public event Action<Vector2> OnLook;
     public event Action<bool> OnInteract;
+    public event Action<bool> OnFlashlightToggle;
 
     // Broadcast methods
     public void RaiseDamage(int amount)
@@ -29,4 +30,7 @@ public class PlayerEventBus
 
     public void RaiseInteract(bool isPressed)
         => OnInteract?.Invoke(isPressed);
+
+    public void RaiseFlashlightToggle(bool isPressed)
+        => OnFlashlightToggle?.Invoke(isPressed);
 }
