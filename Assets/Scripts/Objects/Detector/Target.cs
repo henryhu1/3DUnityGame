@@ -5,6 +5,8 @@ public class Target : Detector
     [Header("Model")]
     [SerializeField] private Renderer rend;
     [SerializeField] private Color detectedColor = Color.pink;
+    [SerializeField] private Light detectionLight;
+
     private Color baseColor;
 
     private void Awake()
@@ -16,19 +18,28 @@ public class Target : Detector
     {
         base.OnTriggerEnter(other);
 
-        if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
-        {
-            rend.material.SetColor("_EmissionColor", detectedColor);
-        }
+        // if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
+        // {
+        //     rend.material.SetColor("_EmissionColor", detectedColor);
+        // }
     }
 
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
 
-        if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
-        {
-            rend.material.SetColor("_EmissionColor", baseColor);
-        }
+        // if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
+        // {
+        //     rend.material.SetColor("_EmissionColor", baseColor);
+        // }
+    }
+
+    protected override bool DetectCollisionChange()
+    {
+        bool isOn = base.DetectCollisionChange();
+
+        detectionLight.enabled = isOn;
+
+        return isOn;
     }
 }

@@ -43,22 +43,23 @@ public class Detector : MonoBehaviour
         }
     }
 
-    public void DetectCollisionChange()
+    protected virtual bool DetectCollisionChange()
     {
         bool isOn;
         if (isDetectingCollision)
         {
             if (detectorType == DetectorType.ENTER_ON) isOn = true;
             else if (detectorType == DetectorType.ENTER_OFF) isOn = false;
-            else return;
+            else isOn = false;
         }
         else
         {
             if (detectorType == DetectorType.EXIT_ON) isOn = true;
             else if (detectorType == DetectorType.EXIT_OFF) isOn = false;
-            else return;
+            else isOn = false;
         }
 
         switchEvent.InvokeChange(isOn);
+        return isOn;
     }
 }
