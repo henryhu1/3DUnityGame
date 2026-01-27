@@ -15,6 +15,7 @@ public class Detector : MonoBehaviour
 
     [SerializeField] protected DetectorType detectorType = DetectorType.ENTER_OFF;
 
+    [SerializeField] protected float checkRadius = 1f;
     [SerializeField] protected string targetTag;
 
     [Header("Events")]
@@ -25,22 +26,54 @@ public class Detector : MonoBehaviour
         return isDetectingCollision;
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    private void Update()
+    {
+        if (!isDetectingCollision)
+        {
+            CheckForDetection();
+            bool isOn = DetectCollisionChange();
+            // TODO: only invoke event if it is different
+            switchEvent.InvokeChange(isOn);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
         {
             isDetectingCollision = true;
-            DetectCollisionChange();
+            bool isOn = DetectCollisionChange();
+            switchEvent.InvokeChange(isOn);
         }
     }
 
-    protected virtual void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (string.IsNullOrEmpty(targetTag) || other.CompareTag(targetTag))
         {
             isDetectingCollision = false;
-            DetectCollisionChange();
+            bool isOn = DetectCollisionChange();
+            switchEvent.InvokeChange(isOn);
         }
+    }
+
+    private void CheckForDetection()
+    {
+        Collider[] hitColliders = {};
+        Physics.OverlapSphereNonAlloc(transform.position, checkRadius, hitColliders, LayerMask.GetMask("Default"));
+
+        if (hitColliders.Length > 0)
+        {
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag(targetTag))
+                {
+                    isDetectingCollision = true;
+                    break;
+                }
+            }
+        }
+        isDetectingCollision = false;
     }
 
     protected virtual bool DetectCollisionChange()
@@ -58,8 +91,6 @@ public class Detector : MonoBehaviour
             else if (detectorType == DetectorType.EXIT_OFF) isOn = false;
             else isOn = false;
         }
-
-        switchEvent.InvokeChange(isOn);
         return isOn;
     }
 }
