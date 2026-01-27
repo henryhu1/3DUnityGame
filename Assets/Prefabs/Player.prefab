@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractHandler
   playerCamera: {fileID: 0}
-  maxDistance: 5
+  maxDistance: 2
   interactMask:
     serializedVersion: 2
     m_Bits: 192
