@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LightVisibilityController : MonoBehaviour
@@ -5,6 +6,8 @@ public class LightVisibilityController : MonoBehaviour
     [SerializeField] private Light[] controlledLights;
     [SerializeField] protected LightSO[] sources;
     [SerializeField] private LightGroupEvaluatorSO evaluator;
+
+    public Action<bool> OnLightVisibilityChange;
 
     private void OnEnable()
     {
@@ -27,8 +30,14 @@ public class LightVisibilityController : MonoBehaviour
 
     protected virtual void ApplyFinalState()
     {
-        bool isOn = evaluator.Evaluate(sources);
+        bool isOn = GetAreLightsOn();
+        OnLightVisibilityChange?.Invoke(isOn);
         foreach (Light light in controlledLights)
             light.enabled = isOn;
+    }
+
+    public bool GetAreLightsOn()
+    {
+        return evaluator.Evaluate(sources);
     }
 }
