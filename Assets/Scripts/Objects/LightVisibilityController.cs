@@ -38,14 +38,14 @@ public class LightVisibilityController : MonoBehaviour, IBlackoutable
 
     public void EnterField()
     {
+        OnLightVisibilityChange?.Invoke(false);
         foreach (Light light in controlledLights)
             light.enabled = false;
     }
 
     public void ExitField()
     {
-        foreach (Light light in controlledLights)
-            light.enabled = true;
+        ApplyFinalState();
     }
 
     public bool GetAreLightsOn()
