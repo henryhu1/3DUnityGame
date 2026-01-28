@@ -28,7 +28,7 @@ public class Detector : MonoBehaviour
 
     private void Update()
     {
-        if (!isDetectingCollision)
+        if (!isDetectingCollision && detectorType != DetectorType.EXIT_OFF)
         {
             CheckForDetection();
             bool isOn = DetectCollisionChange();
