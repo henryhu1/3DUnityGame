@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class LightVisibilityController : MonoBehaviour
+public class LightVisibilityController : MonoBehaviour, IBlackoutable
 {
     [SerializeField] private Light[] controlledLights;
     [SerializeField] protected LightSO[] sources;
@@ -34,6 +34,18 @@ public class LightVisibilityController : MonoBehaviour
         OnLightVisibilityChange?.Invoke(isOn);
         foreach (Light light in controlledLights)
             light.enabled = isOn;
+    }
+
+    public void EnterField()
+    {
+        foreach (Light light in controlledLights)
+            light.enabled = false;
+    }
+
+    public void ExitField()
+    {
+        foreach (Light light in controlledLights)
+            light.enabled = true;
     }
 
     public bool GetAreLightsOn()
