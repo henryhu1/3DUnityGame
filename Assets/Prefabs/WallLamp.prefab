@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6614313451189327407}
   - component: {fileID: 5384105589725635988}
   - component: {fileID: 8761184165843914919}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 9210397481214044497}
   - component: {fileID: 6249757199072031992}
   - component: {fileID: 2827237909295532209}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,8 @@ GameObject:
   - component: {fileID: 806455040396133194}
   - component: {fileID: 6719667909121825793}
   - component: {fileID: 2960668431201232978}
-  m_Layer: 0
+  - component: {fileID: 4465605457117363502}
+  m_Layer: 9
   m_Name: WallLamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,6 +324,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WallLamp
   visibility: {fileID: 6719667909121825793}
   lampRenderer: {fileID: 840100678319495577}
+--- !u!64 &4465605457117363502
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998641906747401551}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 960ebfd11e1032243b1bc32b90fa8c84, type: 3}
 --- !u!1 &3447099655574957185
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +357,7 @@ GameObject:
   - component: {fileID: 1580559377860739188}
   - component: {fileID: 6662686578380816271}
   - component: {fileID: 7860256775196778194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,6 +484,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 960ebfd11e1032243b1bc32b90fa8c84, type: 3}
       propertyPath: m_Name
       value: Lamp-wall1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 960ebfd11e1032243b1bc32b90fa8c84, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 960ebfd11e1032243b1bc32b90fa8c84, type: 3}
       propertyPath: m_LocalPosition.x
